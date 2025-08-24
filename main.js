@@ -6,7 +6,7 @@ let discount=document.getElementById('discount');
 let total=document.getElementById('total');
 let count=document.getElementById('count');
 let category=document.getElementById('category');
-let submit=document.getElementById('submit');
+let create=document.getElementById('create');
 let mood= 'create';
 let tmp;
 //get total
@@ -221,3 +221,4 @@ function searchData(value){
 //update
 //search
 //clean data
+
