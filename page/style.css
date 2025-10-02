@@ -1,0 +1,95 @@
+.header{
+    background-color: rgb(43, 43, 244);
+    color: rgb(243, 250, 250);
+    height: 120px;
+}  
+ul{
+    list-style-type: none;
+    color: rgb(51, 49, 49);
+    margin: 10px;
+    padding: 10px;
+
+}
+li{
+    margin: 5px;
+    padding: 5px;
+}
+a{
+    color: rgb(33, 33, 33);
+    
+
+}
+.img{
+    padding: 10px;
+    margin: 10px;
+}
+.image img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.ccontent h2 , p{
+    display: flex;
+    justify-content: center;
+}
+.ccontent h2{
+    font-size: 30px;
+}
+.content{
+    display: flex;
+    justify-content: center;
+   
+}
+.button{
+    display: block;
+    display: flex;
+    justify-content: center;
+}
+.button1{
+    display: flex;
+    background-color: blue;
+    color: white;
+    font-size: 30px;
+    height: 40px;
+    width: 140px;
+    border: solid blue;
+    border-radius: 8px;
+    margin: 20px;
+    justify-content: center;
+}
+.button1:hover{
+    scale: 1.1;
+    border: solid rgb(243, 227, 227) 2px;
+}
+
+.button2{
+    border: blue solid ;
+    border-radius: 2px;
+    border-radius: 8px;
+    margin: 20px;
+    height: 40px;
+    width: 140px;
+}
+.button2:hover{
+    scale: 1.1;
+}
+.fcontent{
+    background-color: rgb(54, 53, 53);
+    color: rgb(243, 227, 227);
+    display: flex;
+    justify-content: space-between;
+    margin: 8px;
+    padding: 5px;
+    font-size: 20px;
+}
+.icons i{
+    
+    margin: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .dark {
+            background-color: #1a202c;
+            color: #f7fafc;
+        }
+        .dark .hero-bg {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+        }
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Dark Mode Toggle -->
+    <button id="theme-toggle" class="toggle-btn bg-gray-200 dark:bg-gray-700 p-2 rounded-full">
+        <i class="fas fa-moon dark:hidden"></i>
+        <i class="fas fa-sun hidden dark:inline"></i>
+    </button>
+
+    <!-- Header -->
+    <header id="header" class="bg-white dark:bg-gray-800 shadow fixed w-full z-10">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">My Portfolio</h1>
+                <ul class="hidden md:flex space-x-6">
+                    <li><a href="#hero" class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Home</a></li>
+                    <li><a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-500">About</a></li>
+                    <li><a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Projects</a></li>
+                    <li><a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Skills</a></li>
+                    <li><a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-500">Contact</a></li>
+                </ul>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <ul id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <li><a href="#hero" class="block text-gray-700 dark:text-gray-300 hover:text-blue-500">Home</a></li>
+                <li><a href="#about" class="block text-gray-700 dark:text-gray-300 hover:text-blue-500">About</a></li>
+                <li><a href="#projects" class="block text-gray-700 dark:text-gray-300 hover:text-blue-500">Projects</a></li>
+                <li><a href="#skills" class="block text-gray-700 dark:text-gray-300 hover:text-blue-500">Skills</a></li>
+                <li><a href="#contact" class="block text-gray-700 dark:text-gray-300 hover:text-blue-500">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg text-white py-20 fade-in">
+        <div class="container mx-auto px-4 text-center">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ecb747bb-2647-45d8-8195-af387fb74a5a.png" alt="Professional portrait of a male software engineer in a casual office setting with bookshelves and a laptop in the background, wearing glasses and smiling confidently" class="mx-auto mb-4 rounded-full border-4 border-white">
+            <h2 class="text-4xl md:text-6xl font-bold mb-4">Hello, I'm John Doe</h2>
+            <p class="text-xl md:text-2xl mb-8">Full-Stack Developer & UI/UX Enthusiast</p>
+            <a href="#contact" class="bg-white text-purple-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center mb-10">About Me</h3>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d4bce22c-7de1-4b7d-9642-3ed7880ea4de.png" alt="Elegant coding workspace with dual monitors displaying lines of code in vibrant colors, ergonomic chair, plants, and ambient lighting in a modern home office" class="rounded-lg">
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <p class="text-lg mb-4">I'm a passionate software engineer with over 5 years of experience in building web applications. I love turning ideas into reality using the latest technologies.</p>
+                    <p class="text-lg">When I'm not coding, you can find me hiking, reading sci-fi novels, or experimenting with new recipes in the kitchen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-700">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center mb-10">My Projects</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b1a31eff-0f2b-46fb-92ce-e54655c9c2da.png" alt="Interactive dashboard interface showing charts, graphs, and data visualizations for a financial app with blue and green color scheme on a modern device screen" class="rounded mb-4">
+                    <h4 class="text-xl font-semibold mb-2">E-Commerce Platform</h4>
+                    <p class="mb-4">A full-stack e-commerce site with payment integration, built using React and Node.js.</p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700">View Project</a>
+                </div>
+                <div class="project-card bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d0b1fb7c-1e28-479e-8411-80ff0e295a2a.png" alt="Mobile app screenshots displaying user interface for a fitness tracking application with workout plans, progress charts, and heart rate monitor in bright orange and white tones" class="rounded mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Fitness Tracker</h4>
+                    <p class="mb-4">A React Native app for tracking workouts and fitness goals, with real-time progress monitoring.</p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700">View Project</a>
+                </div>
+                <div class="project-card bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1ea74f0d-f1b1-4003-bd3e-ee3a3ac0838b.png" alt="Clean webpage layout for a blogging platform showcasing article previews, user comments, and responsive design with typography and image galleries" class="rounded mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Blog CMS</h4>
+                    <p class="mb-4">A custom content management system for bloggers, featuring rich text editing and SEO optimization.</p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center mb-10">Skills & Technologies</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
+                    <p>HTML5</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
+                    <p>CSS3</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-js-square text-4xl text-yellow-500 mb-2"></i>
+                    <p>JavaScript</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-react text-4xl text-blue-400 mb-2"></i>
+                    <p>React</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-node-js text-4xl text-green-500 mb-2"></i>
+                    <p>Node.js</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-python text-4xl text-yellow-600 mb-2"></i>
+                    <p>Python</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-git-alt text-4xl text-red-500 mb-2"></i>
+                    <p>Git</p>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-aws text-4xl text-orange-600 mb-2"></i>
+                    <p>AWS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-700">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-center mb-10">Contact Me</h3>
+            <div id="contact-form" class="max-w-lg mx-auto">
+                <input type="text" id="name" placeholder="Your Name" class="w-full mb-4 p-3 rounded border dark:bg-gray-800 dark:border-gray-600">
+                <input type="email" id="email" placeholder="Your Email" class="w-full mb-4 p-3 rounded border dark:bg-gray-800 dark:border-gray-600">
+                <textarea id="message" placeholder="Your Message" class="w-full mb-4 p-3 rounded border dark:bg-gray-800 dark:border-gray-600" rows="5"></textarea>
+                <button id="submit-btn" class="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600 transition">Send Message</button>
+                <p id="feedback" class="mt-4 text-center text-green-500 hidden">Thank you! Message sent successfully.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>© 2023 John Doe. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="mx-2 hover:text-gray-300"><i class="fab fa-github"></i></a>
+                <a href="#" class="mx-2 hover:text-gray-300"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="mx-2 hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="mx-2 hover:text-gray-300"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+        });
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+        }
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Contact Form Submission (Simulation)
+        const submitBtn = document.getElementById('submit-btn');
+        const feedback = document.getElementById('feedback');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        submitBtn.addEventListener('click', () => {
+            if (nameInput.value && emailInput.value && messageInput.value) {
+                feedback.classList.remove('hidden');
+                setTimeout(() => {
+                    feedback.classList.add('hidden');
+                    nameInput.value = '';
+                    emailInput.value = '';
+                    messageInput.value = '';
+                }, 3000);
+            }
+        });
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>

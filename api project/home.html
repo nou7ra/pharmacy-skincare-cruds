@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+    <link
+      rel="stylesheet"
+      href="/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+  </head>
+  <body>
+    <style>
+        body{
+            background-color: #f0ecff;
+        }
+        .card{
+          margin-top: 30px;
+        }
+    </style>
+    <!--login modal-->
+    <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Username:</label>
+            <input type="text" class="form-control" id="username-input">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Password:</label>
+            <input type="password" class="form-control" id="password-input">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="loginBtn()">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end of login modal-->
+<!--success alert-->
+<div id="successAlert" class="show fade"></div>
+<!--end of alert-->
+
+
+
+
+    <div class="container shadow rounded-4 bg-light col-9" ></button>
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Tarmeez</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Profile</a>
+              </li>
+            </ul>
+            <!--for non logged in-->
+            <div class=" d-flex  w-100 justify-content-end " id="loggedin-div" >
+                <button id="login-btn" type="button" class="btn btn-outline-success mx-2" data-bs-toggle="modal" data-bs-target="#login-modal" >Login</button>
+                <button id="register-btn" type="button" class="btn btn-outline-success ">Register</button>
+            </div>
+            <!--end-->
+            <!--for logged in-->
+            <div class=" d-flex  w-100 justify-content-end " id="logout-div">
+              <button onclick="logout()" id="logout-btn" type="button" class="btn btn-outline-danger mx-2"  >Logout</button>
+
+            </div>
+
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="container  " style="height: 1000px">
+        <div class="d-flex justify-content-center mt-3">
+            <div class="col-9">
+                <div id="posts">
+                    <div class="card shadow ">
+                        <div class="card-header ">
+                            <img src="img1.jpg" alt="" class="img-thumbnail rounded-circle border border-0" style="width: 60px; height:60px">
+                            <b>@Narihan</b>
+                        </div>
+                        <div class="card-body">
+                            <img class="w-100" src="post.jpg" alt="">
+                            <h6 style="color:rgb(193, 193 , 193) " class="mt-1">2 min ago</h6>
+                            <h5>
+                              hello world
+                            </h5>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod doloribus nam, laudantium esse cupiditate ad. Rem accusantium doloremque officiis! Rerum autem nemo nihil quasi provident vitae id voluptatibus commodi unde.</p>
+                            <hr>
+                            <div class="mt-0">
+                              <span class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg> (3) Comments
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow ">
+                        <div class="card-header ">
+                            <img src="img1.jpg" alt="" class="img-thumbnail rounded-circle border border-0" style="width: 60px; height:60px">
+                            <b>@Narihan</b>
+                        </div>
+                        <div class="card-body">
+                            <img class="w-100" src="post.jpg" alt="">
+                            <h6 style="color:rgb(193, 193 , 193) " class="mt-1">2 min ago</h6>
+                            <h5>
+                              hello world
+                            </h5>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod doloribus nam, laudantium esse cupiditate ad. Rem accusantium doloremque officiis! Rerum autem nemo nihil quasi provident vitae id voluptatibus commodi unde.</p>
+                            <hr>
+                            <div class="mt-0">
+                              <span class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg> (3) Comments
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow ">
+                        <div class="card-header ">
+                            <img src="img1.jpg" alt="" class="img-thumbnail rounded-circle border border-0" style="width: 60px; height:60px">
+                            <b>@Narihan</b>
+                        </div>
+                        <div class="card-body">
+                            <img class="w-100" src="post.jpg" alt="">
+                            <h6 style="color:rgb(193, 193 , 193) " class="mt-1">2 min ago</h6>
+                            <h5>
+                              hello world
+                            </h5>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod doloribus nam, laudantium esse cupiditate ad. Rem accusantium doloremque officiis! Rerum autem nemo nihil quasi provident vitae id voluptatibus commodi unde.</p>
+                            <hr>
+                            <div class="mt-0">
+                              <span class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg> (3) Comments
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow ">
+                        <div class="card-header ">
+                            <img src="img1.jpg" alt="" class="img-thumbnail rounded-circle border border-0" style="width: 60px; height:60px">
+                            <b>@Narihan</b>
+                        </div>
+                        <div class="card-body">
+                            <img class="w-100" src="post.jpg" alt="">
+                            <h6 style="color:rgb(193, 193 , 193) " class="mt-1">2 min ago</h6>
+                            <h5>
+                              hello world
+                            </h5>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod doloribus nam, laudantium esse cupiditate ad. Rem accusantium doloremque officiis! Rerum autem nemo nihil quasi provident vitae id voluptatibus commodi unde.</p>
+                            <hr>
+                            <div class="mt-0">
+                              <span class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg> (3) Comments
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card shadow ">
+                        <div class="card-header ">
+                            <img src="img1.jpg" alt="" class="img-thumbnail rounded-circle border border-0" style="width: 60px; height:60px">
+                            <b>@Narihan</b>
+                        </div>
+                        <div class="card-body">
+                            <img class="w-100" src="post.jpg" alt="">
+                            <h6 style="color:rgb(193, 193 , 193) " class="mt-1">2 min ago</h6>
+                            <h5>
+                              hello world
+                            </h5>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod doloribus nam, laudantium esse cupiditate ad. Rem accusantium doloremque officiis! Rerum autem nemo nihil quasi provident vitae id voluptatibus commodi unde.</p>
+                            <hr>
+                            <div class="mt-0">
+                              <span class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+</svg> (3) Comments
+                              </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+
+
+
+    </div>
+  </body>
+  <script>
+     function getPosts() {
+    // Make a request for a user with a given ID
+    axios.get("https://tarmeezacademy.com/api/v1/posts")
+    .then(function (response) {
+        // handle success
+        let posts=response.data.data
+        document.getElementById("posts").innerHTML=""
+        for(post of posts){
+          let postTitle=""
+          if(post.title !=null){
+            postTitle = post.title
+          }
+          let content=`
+                              <div class="card shadow ">
+                                <div class="card-header ">
+                                  <img src="${post.author.profile_image}" alt="" class="img-thumbnail rounded-circle border border-0" style="width: 60px; height:60px">
+                                  <b>${post.author.username}</b>
+                                </div>
+                                <div class="card-body">
+                                  <img class="w-100" src="${post.image}" alt="">
+                                  <h6 style="color:rgb(193, 193 , 193) " class="mt-1">${post.created_at}</h6>
+                                  <h5>${postTitle}<h5/>
+                                  <p>${post.body}</p>
+                                  <hr>
+                                  <div class="mt-0">
+                                    <span class="">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+  <path d="m13.498.795.149-.149a1.207 
+  1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+                                      </svg> (${post.comments_count}) Comments
+                                      <span id="posttags">
+                                        <button class="btn btn-sm rounded-5" style="background-color:gray; color:white">policy
+                                        </button>
+                                        <button class="btn btn-sm rounded-5" style="background-color:gray; color:white">policy
+                                        </button>
+                                        <button class="btn btn-sm rounded-5" style="background-color:gray; color:white">policy
+                                        </button>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+
+          `
+          document.getElementById("posts").innerHTML +=content
+          document.getElementById("posttags").innerHTML += ""
+        }
+      
+      })
+      
+  }
+
+getPosts();
+function logout(){
+  localStorage.removeItem("token")
+  localStorage.removeItem("user")
+  showsuccessAlert("logged out successfully")
+  getUI()
+}
+function loginBtn(){
+  const username = document.getElementById("username-input").value
+  const password = document.getElementById("password-input").value
+
+  const params ={
+    "username":username,
+    "password":password
+  }
+  const url ="https://tarmeezacademy.com/api/v1/login"
+  axios.post(url , params)
+  .then((response)=>{
+    localStorage.setItem("token", response.data.token)
+    localStorage.setItem("user" , JSON.stringify(response.data.user))
+    const modal =document.getElementById("login-modal")
+    const modalInstance = bootstrap.Modal.getInstance(modal)
+    modalInstance.hide()
+    showsuccessAlert("logged in successfully")
+    getUI()
+  })
+  
+}
+function showsuccessAlert(custommessage){
+  const alertPlaceholder = document.getElementById('successAlert')
+  const appendAlert = (message, type) => {
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
+
+  alertPlaceholder.append(wrapper)
+  }
+  appendAlert(custommessage, 'success')
+  setTimeout(()=>{
+  const alertEl = document.querySelector('#successAlert .alert')
+  if(alertEl){
+    const alertInstance = bootstrap.Alert.getOrCreateInstance(alertEl)
+    alertInstance.close()
+  }
+},2000)
+
+}
+  
+//showsuccessAlert()
+
+function getUI(){
+  const token= localStorage.getItem("token")
+  const loginbtn= document.getElementById("loggedin-div")
+  const logout = document.getElementById("logout-div")
+  if(token == null){// user is not logged in 
+    loginbtn.style.setProperty("display" , "flex" ,"important")
+    logout.style.setProperty("display" , "none" ,"important")
+
+  }else{
+    loginbtn.style.setProperty("display" , "none" ,"important")
+    logout.style.setProperty("display" , "flex" ,"important")
+
+  }
+}
+getUI()
+  </script>
+</html>

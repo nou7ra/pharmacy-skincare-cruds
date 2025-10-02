@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <script src="node_modules/axios/dist/axios.js"></script>
+   
+
+</head>
+<body>
+    <div class="container">
+            <div class="list">
+        <div class="names">
+            <ul>
+                <li><a href="" class="selected">aaaaa <br> <h3>tttttttt</h3></a>
+                    
+                </li>
+                <li><a href="">aaaaa</a></li>
+                <li><a href="">aaaaa</a></li>
+                <li><a href="">aaaaa</a></li>
+                <li><a href="">aaaaa</a></li>
+                <li><a href="">aaaaa</a></li>
+                <li><a href="">aaaaa</a></li>
+                <li><a href="">aaaaa</a></li>
+                <li><a href="">llllllll</a></li>
+               
+            </ul>
+        </div>
+    </div>
+    <div class="main">
+        <div class="part">
+            <h3>oooooooooooooo</h3>    
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque deleniti sequi accusamus quasi, velit quae eveniet maiores tenetur deserunt est dolor. Vitae ullam illo quibusdam voluptates inventore accusamus fugit magnam!</p>
+        </div>
+        <div class="part">
+            <h3>oooooooooooooo</h3>   
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque deleniti sequi accusamus quasi, velit quae eveniet maiores tenetur deserunt est dolor. Vitae ullam illo quibusdam voluptates inventore accusamus fugit magnam!</p>
+            
+        </div>
+        <div class="part">
+            <h3>oooooooooooooo</h3>      
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque deleniti sequi accusamus quasi, velit quae eveniet maiores tenetur deserunt est dolor. Vitae ullam illo quibusdam voluptates inventore accusamus fugit magnam!</p>
+        </div> 
+        <div class="part">
+            <h3>oooooooooooooo</h3>      
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque deleniti sequi accusamus quasi, velit quae eveniet maiores tenetur deserunt est dolor. Vitae ullam illo quibusdam voluptates inventore accusamus fugit magnam!</p>
+            
+        </div>
+        <div class="part">
+            <h3>oooooooooooooo</h3>      
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque deleniti sequi accusamus quasi, velit quae eveniet maiores tenetur deserunt est dolor. Vitae ullam illo quibusdam voluptates inventore accusamus fugit magnam!</p>
+           
+        </div>
+        <div class="part">
+            <h3>oooooooooooooo</h3>      
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque deleniti sequi accusamus quasi, velit quae eveniet maiores tenetur deserunt est dolor. Vitae ullam illo quibusdam voluptates inventore accusamus fugit magnam!</p>
+           
+        </div>
+        <div class="part">
+            <h3>oooooooooooooo</h3>    
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque deleniti sequi accusamus quasi, velit quae eveniet maiores tenetur deserunt est dolor. Vitae ullam illo quibusdam voluptates inventore accusamus fugit magnam!</p>
+            
+        </div>
+        <div class="part">
+            <h3>oooooooooooooo</h3>      
+            <hr>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum voluptas, rerum nemo vel voluptatum ipsum iste unde in incidunt aperiam architecto ex consequuntur animi laboriosam minus, dolore nam repellat distinctio? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, eligendi. ipsum dolor sit amet consectetur adipisicing elit. Atque deleniti sequi accusamus quasi, velit quae eveniet maiores tenetur deserunt est dolor. Vitae ullam illo quibusdam voluptates inventore accusamus fugit magnam!</p>
+        </div>
+    </div>
+    </div>
+
+
+
+   
+    <script>
+        function getUserAxios(){
+           
+            axios.get('https://jsonplaceholder.typicode.com/users')
+            .then( (response)=> {
+                let users = response.data
+                document.querySelector(".names ul").innerHTML=""
+                for(user of users){
+                    let content=`
+                    <ul>
+                        <li onclick="userClicked(${user.id})"><a   >${user.name}<br>${user.email}</a></li>
+                    </ul>`
+                   document.querySelector(".names ul").innerHTML += content
+             } 
+          })
+          .catch(()=>{
+            console.log("error")
+          })
+
+        }
+        getUserAxios()
+
+
+        function getpostsAxios(userId){
+
+            axios.get("https://jsonplaceholder.typicode.com/posts?userId="+userId)
+            .then(response=>{
+                let posts= response.data
+                document.querySelector(".part").innerHTML=""
+                for(post of posts){
+                    let content=`
+                    <div class="part">
+                        <h3>${post.title}</h3>      
+                        <hr>
+                        <p>${post.body} </p>
+                    </div>     
+                          `
+                    document.querySelector(".part").innerHTML += content
+             }
+            }).catch(error=>{
+                alert("error")
+            })
+        }
+        getpostsAxios(1)
+
+        function userClicked(id){
+            getPosts(id)
+            
+        }
+         
+
+
+    
+      
+    
+    </script>
+</body>
+</html>
+
+
+
+

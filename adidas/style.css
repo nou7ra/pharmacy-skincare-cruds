@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Cossette+Titre:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Story+Script&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: "Lato", sans-serif;
+    background-color: rgb(0, 0, 0);
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 50px;
+}
+body::after{
+    content: '';
+    width: 120%;
+    height: 120%;
+    background-color: red;
+    position: absolute;
+    z-index: -1;
+    clip-path: circle(40% at right 70%);
+}
+.container{
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+.nav{
+    
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+ul{
+    list-style-type: none;
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+}
+a{
+    text-decoration-line: none;
+    margin: 0 5px;
+    padding: 0 5px;
+    color: white;
+}
+.navbar:hover{
+    color: red;
+}
+.logo{
+    letter-spacing: 3px;
+    margin: 10px;
+    padding: 10px;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+}
+.content{
+    height: 100%;
+    width: 80%;
+    padding: 10 100px;
+    margin:  auto;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.content h1{
+    text-transform: uppercase;
+    width: 100px;
+    font-weight: 700;
+    margin: 10px;
+    letter-spacing: 3px;
+}
+.content p{
+    font-size: 18px;
+    padding-bottom: 80px;
+    width: 300px;
+    margin: 10px;
+    line-height: 1.4;
+    text-align: left;
+}
+.text{
+    width: 40%;
+}
+ .image{
+    width: 40%;
+    margin:  10px 170px;
+ }
+ .image img{
+    width: 300px;
+ }
+ @media(min-width:950px) and (max-width:1100px){
+    .image img{
+        width: 330px;
+    }
+ }
+ @media(max-width:950px){
+    .content, .nav{
+        flex-direction: column;
+        justify-content: center;
+    }
+     .text{
+        width: 80%;
+    }
+    .image img{
+        width: 200px;
+    }
+    body::after{
+        clip-path: circle(50% at bottom);
+
+    }
+ }
